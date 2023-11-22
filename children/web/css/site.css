@@ -1,0 +1,281 @@
+main > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    font-size: .9em;
+    height: 60px;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    content: '';
+    left: 3px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: solid 5px transparent;
+    margin: 4px 4px 2px 4px;
+    background: transparent;
+}
+
+a.asc:after {
+    border-bottom: solid 7px #212529;
+    border-top-width: 0;
+}
+
+a.desc:after {
+    border-top: solid 7px #212529;
+    border-bottom-width: 0;
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding-top: 7px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+/* стилизация содержимого страницы */
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #292b2c;
+    background-color: #fff;
+}
+
+/* свойства модального окна по умолчанию */
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); /* цвет фона */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+    pointer-events: auto; /* элемент видим для событий мыши */
+    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px;
+        margin: 30px auto; /* для отображения модального окна по центру */
+    }
+}
+/* свойства для блока, содержащего контент модального окна */
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+@media (min-width: 768px) {
+    .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+        box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    }
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+}
+
+aside{
+    float: left;
+    margin-left: -89px;
+    margin-top: -74px;
+    background: #181818;
+    width: 22%;
+    padding: 2.5%;
+    height: 153vh;
+    color: #fff;
+    border-right: 5px solid#4d4d4d;
+}
+
+aside img {
+    width: 70px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 30px;
+    margin-left: -2px;
+    font-weight: bold;
+    position: relative;
+    top: 12px;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+aside ul {list-style: none}
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    transition: all .6s ease;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: left;
+    color: #fff;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+
+main .features h1 {
+    font-size: 50px;
+
+}
+
+main .features p {max-width: 400px; margin-top: 20px}
+
+.blok_komment {
+    position: absolute;
+    left: 400px;
+}
+
